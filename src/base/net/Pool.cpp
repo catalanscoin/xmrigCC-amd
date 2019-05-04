@@ -498,7 +498,7 @@ void xmrig::Pool::rebuild()
     addVariant(VARIANT_GPU);
 
     // XMrigCC custom variants
-    addVariant(VARIANT_TURTLE);
+    addVariant(VARIANT_CAT);
     addVariant(VARIANT_XFH);
     addVariant(VARIANT_UPX);
     addVariant(VARIANT_RWZ);

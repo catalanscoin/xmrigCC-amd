@@ -75,7 +75,7 @@ enum Variant {
     VARIANT_XFH  = 9,       // CryptoNight variant xfh/swap aka cn-heavy-superfast
     VARIANT_FAST_2 = 10,    // Modified CryptoNight variant used by xtl v9 / msr v8
     VARIANT_UPX = 11,       // Modified CryptoNight-Lite variant upx
-    VARIANT_TURTLE = 12,    // Modified CryptoNight-Femto variant catalans
+    VARIANT_CAT = 12,    // Modified CryptoNight-Femto variant catalans
     VARIANT_GPU  = 13,      // CryptoNight-GPU (Ryo)
     VARIANT_WOW  = 14,      // CryptoNightR (Wownero)
     VARIANT_4    = 15,      // CryptoNightR

@@ -94,14 +94,14 @@ static AlgoData const algorithms[] = {
 #   endif
 
 #   ifndef XMRIG_NO_CN_FEMTO
-    { "cryptonight-femto",          "cn-femto",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight-femto/catalans",   "cn-femto/catalans",   xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight-femto/2",        "cn-femto/2",        xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight-pico/cat",          "cn-pico/cat",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight-pico",               "cn-pico",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight-catalans",             "cn-catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight-catalans",             "cn-cat",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
-    { "cryptonight_catalans",             "cn_catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-femto",          "cn-femto",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-femto/catalans",   "cn-femto/catalans",   xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-femto/2",        "cn-femto/2",        xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-pico/cat",          "cn-pico/cat",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-pico",               "cn-pico",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-catalans",             "cn-catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-catalans",             "cn-cat",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight_catalans",             "cn_catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
 #   endif
 
 #   ifndef XMRIG_NO_CN_EXTREMELITE
@@ -236,7 +236,7 @@ void xmrig::Algorithm::parseVariant(const char *variant)
     }
 
     if (m_algo == xmrig::CRYPTONIGHT_FEMTO) {
-        m_variant = VARIANT_TURTLE;
+        m_variant = VARIANT_CAT;
         return;
     }
 
@@ -304,7 +304,7 @@ void xmrig::Algorithm::setAlgo(Algo algo)
     m_algo = algo;
 
     if (m_algo == CRYPTONIGHT_FEMTO && m_variant == VARIANT_AUTO) {
-        m_variant = xmrig::VARIANT_TURTLE;
+        m_variant = xmrig::VARIANT_CAT;
     }
 
     if (m_algo == CRYPTONIGHT_EXTREMELITE && m_variant == VARIANT_AUTO) {

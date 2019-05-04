@@ -424,7 +424,7 @@ void Pool::rebuild()
     addVariant(xmrig::VARIANT_XFH);
     addVariant(xmrig::VARIANT_FAST_2);
     addVariant(xmrig::VARIANT_UPX);
-    addVariant(xmrig::VARIANT_TURTLE);
+    addVariant(xmrig::VARIANT_CAT);
     addVariant(xmrig::VARIANT_GPU);
     addVariant(xmrig::VARIANT_AUTO);
 #   endif

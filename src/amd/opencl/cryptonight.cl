@@ -105,7 +105,7 @@ XMRIG_INCLUDE_FAST_DIV_HEAVY
 #define VARIANT_2    8  // CryptoNight variant 2
 #define VARIANT_XFH  9  // CryptoNight variant xfh aka cn-heavy-superfast
 #define VARIANT_FAST_2  10      // CryptoNight variant 2 with half iterations (Masari/Stellite)
-#define VARIANT_TURTLE  11      // CryptoNight Catalans (CAT)
+#define VARIANT_CAT  11      // CryptoNight Catalans (CAT)
 #define VARIANT_UPX  12         // CryptoNight UPX
 #define VARIANT_GPU  13         // CryptoNight-GPU (Ryo)
 #define VARIANT_RWZ = 16,       // Cryptonight (2) variant 3/4 Iterations + reverse shuffle rwz (Graft)

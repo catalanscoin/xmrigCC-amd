@@ -100,7 +100,7 @@ inline static int cn1KernelOffset(xmrig::Variant variant)
         return 10;
 
     case xmrig::VARIANT_2:
-    case xmrig::VARIANT_TURTLE:
+    case xmrig::VARIANT_CAT:
         return 11;
 
     case xmrig::VARIANT_XFH:

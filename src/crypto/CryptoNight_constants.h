@@ -156,7 +156,7 @@ template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_LITE, VARIANT_UP
 template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_HEAVY, VARIANT_0>()    { return CRYPTONIGHT_HALF_ITER; }
 template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_HEAVY, VARIANT_XHV>()  { return CRYPTONIGHT_HALF_ITER; }
 template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_HEAVY, VARIANT_TUBE>() { return CRYPTONIGHT_HALF_ITER; }
-template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_FEMTO, VARIANT_TURTLE>()  { return CRYPTONIGHT_CAT_ITER; }
+template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_FEMTO, VARIANT_CAT>()  { return CRYPTONIGHT_CAT_ITER; }
 template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT_EXTREMELITE, VARIANT_UPX2>()  { return CRYPTONIGHT_UPX2_ITER; }
 template<> inline constexpr uint32_t cn_select_iter<CRYPTONIGHT, VARIANT_GPU>()        { return CRYPTONIGHT_GPU_ITER; }
 
@@ -229,7 +229,7 @@ template<> inline constexpr Variant cn_base_variant<VARIANT_XFH>()   { return VA
 template<> inline constexpr Variant cn_base_variant<VARIANT_FAST_2>(){ return VARIANT_2; }
 template<> inline constexpr Variant cn_base_variant<VARIANT_2>()     { return VARIANT_2; }
 template<> inline constexpr Variant cn_base_variant<VARIANT_UPX>()   { return VARIANT_1; }
-template<> inline constexpr Variant cn_base_variant<VARIANT_TURTLE>(){ return VARIANT_2; }
+template<> inline constexpr Variant cn_base_variant<VARIANT_CAT>(){ return VARIANT_2; }
 template<> inline constexpr Variant cn_base_variant<VARIANT_GPU>()   { return VARIANT_GPU; }
 template<> inline constexpr Variant cn_base_variant<VARIANT_WOW>()   { return VARIANT_2; }
 template<> inline constexpr Variant cn_base_variant<VARIANT_4>()     { return VARIANT_2; }
