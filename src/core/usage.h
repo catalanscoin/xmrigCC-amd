@@ -41,9 +41,9 @@ Options:\n\
 "\
                                  cryptonight-lite\n"
 #endif
-#ifndef XMRIG_NO_CN_ULTRALITE
+#ifndef XMRIG_NO_CN_FEMTO
         "\
-                                 cryptonight-ultralite\n"
+                                 cryptonight-femto\n"
 #endif
 #ifndef XMRIG_NO_CN_EXTREMELITE
         "\

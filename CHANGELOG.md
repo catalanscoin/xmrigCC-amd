@@ -15,11 +15,11 @@
     - Integrated new RYO algo CN-GPU (algo: "cryptonight", variant: "gpu")
 - Added alias CN-HOSP for RTO algo (algo: "cryptonight", variant: "hosp" or variant: "rto")    
 # 1.8.12
-- Fixed cn-ultralite no suitable algo error when using xmrig-proxy
-- Added more names to the algo parse CN-Turtle/Ultralite
+- Fixed cn-femto no suitable algo error when using xmrig-proxy
+- Added more names to the algo parse CN-Catalans/Femto
 # 1.8.11
 - Added fix for upcoming Masari fork (cn-half/fast2) (algo: "cryptonight", variant: "msr" (autodetect), "fast2" (force))
-- Integrated cn-ultralite (turtleV2/DEGO) (algo: "cryptonight-ultralite", variant: "auto")
+- Integrated cn-femto (catalansV2/DEGO) (algo: "cryptonight-femto", variant: "auto")
 - Rebase from XMRig-amd 2.10.0
 # 1.8.9
 - Improved algo parsing for XTL v9 aka cn-half/fast2

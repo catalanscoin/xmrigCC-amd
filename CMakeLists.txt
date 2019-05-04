@@ -289,7 +289,7 @@ if (NOT WITH_SUMO)
 endif()
 
 if (NOT WITH_CN_PICO)
-    add_definitions(/DXMRIG_NO_CN_ULTRALITE)
+    add_definitions(/DXMRIG_NO_CN_FEMTO)
 endif()
 
 if (NOT WITH_CN_EXTREMELITE)

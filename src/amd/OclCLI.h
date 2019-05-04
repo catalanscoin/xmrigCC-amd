@@ -64,7 +64,7 @@ private:
         DoubleThreads = 1,
         Vega          = 2,
         CNv2          = 4,
-        Ultralite     = 8,
+        Femto     = 8,
         Extremelite   = 16
     };
 

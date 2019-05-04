@@ -71,7 +71,7 @@ xmrig::Config::Config() : xmrig::CommonConfig(),
 
 bool xmrig::Config::isCNv2() const
 {
-    if (algorithm().algo() == CRYPTONIGHT_ULTRALITE) {
+    if (algorithm().algo() == CRYPTONIGHT_FEMTO) {
         return true;
     }
 

@@ -105,7 +105,7 @@ XMRIG_INCLUDE_FAST_DIV_HEAVY
 #define VARIANT_2    8  // CryptoNight variant 2
 #define VARIANT_XFH  9  // CryptoNight variant xfh aka cn-heavy-superfast
 #define VARIANT_FAST_2  10      // CryptoNight variant 2 with half iterations (Masari/Stellite)
-#define VARIANT_TURTLE  11      // CryptoNight Turtle (TRTL)
+#define VARIANT_TURTLE  11      // CryptoNight Catalans (CAT)
 #define VARIANT_UPX  12         // CryptoNight UPX
 #define VARIANT_GPU  13         // CryptoNight-GPU (Ryo)
 #define VARIANT_RWZ = 16,       // Cryptonight (2) variant 3/4 Iterations + reverse shuffle rwz (Graft)
@@ -115,7 +115,7 @@ XMRIG_INCLUDE_FAST_DIV_HEAVY
 #define CRYPTONIGHT       0 /* CryptoNight (2 MB) */
 #define CRYPTONIGHT_LITE  1 /* CryptoNight (1 MB) */
 #define CRYPTONIGHT_HEAVY 2 /* CryptoNight (4 MB) */
-#define CRYPTONIGHT_ULTRALITE  3 /* CryptoNight (256 KB) */
+#define CRYPTONIGHT_FEMTO  3 /* CryptoNight (256 KB) */
 #define CRYPTONIGHT_EXTREMELITE  4 /* CryptoNight (128 KB) */
 
 #if defined(__NV_CL_C_VERSION) && STRIDED_INDEX != 0
@@ -793,7 +793,7 @@ R"===(
 __attribute__((reqd_work_group_size(WORKSIZE, 1, 1)))
 __kernel void cn1_v2_monero(__global uint4 *Scratchpad, __global ulong *states, uint variant, __global ulong *input, uint Threads)
 {
-#   if (ALGO == CRYPTONIGHT || ALGO == CRYPTONIGHT_ULTRALITE)
+#   if (ALGO == CRYPTONIGHT || ALGO == CRYPTONIGHT_FEMTO)
     ulong a[2], b[4];
     __local uint AES0[256], AES1[256], AES2[256], AES3[256];
     

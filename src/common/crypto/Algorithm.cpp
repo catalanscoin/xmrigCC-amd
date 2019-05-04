@@ -93,15 +93,15 @@ static AlgoData const algorithms[] = {
     { "cryptonight-heavy/tube", "cn-heavy/tube", xmrig::CRYPTONIGHT_HEAVY, xmrig::VARIANT_TUBE },
 #   endif
 
-#   ifndef XMRIG_NO_CN_ULTRALITE
-    { "cryptonight-ultralite",          "cn-ultralite",          xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight-ultralite/turtle",   "cn-ultralite/turtle",   xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight-ultralite/2",        "cn-ultralite/2",        xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight-pico/trtl",          "cn-pico/trtl",          xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight-pico",               "cn-pico",               xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight-turtle",             "cn-turtle",             xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight-turtle",             "cn-trtl",               xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
-    { "cryptonight_turtle",             "cn_turtle",             xmrig::CRYPTONIGHT_ULTRALITE, xmrig::VARIANT_TURTLE },
+#   ifndef XMRIG_NO_CN_FEMTO
+    { "cryptonight-femto",          "cn-femto",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-femto/catalans",   "cn-femto/catalans",   xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-femto/2",        "cn-femto/2",        xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-pico/cat",          "cn-pico/cat",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-pico",               "cn-pico",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-catalans",             "cn-catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight-catalans",             "cn-cat",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
+    { "cryptonight_catalans",             "cn_catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_TURTLE },
 #   endif
 
 #   ifndef XMRIG_NO_CN_EXTREMELITE
@@ -132,7 +132,7 @@ static AlgoData const xmrStakAlgorithms[] = {
     { "cryptonight_masari",      nullptr, xmrig::CRYPTONIGHT,       xmrig::VARIANT_MSR  },
     { "cryptonight-bittube2",    nullptr, xmrig::CRYPTONIGHT_HEAVY, xmrig::VARIANT_TUBE }, // bittube-miner
     { "cryptonight_alloy",       nullptr, xmrig::CRYPTONIGHT,       xmrig::VARIANT_XAO  }, // xmr-stak-alloy
-    { "cryptonight_turtle",      nullptr, xmrig::CRYPTONIGHT_PICO,  xmrig::VARIANT_TRTL },
+    { "cryptonight_catalans",      nullptr, xmrig::CRYPTONIGHT_PICO,  xmrig::VARIANT_CAT },
     { "cryptonight_gpu",         nullptr, xmrig::CRYPTONIGHT,       xmrig::VARIANT_GPU  },
 };
 #endif
@@ -151,7 +151,7 @@ static const char *variants[] = {
     "xfh",
     "fast2",
     "upx",
-    "turtle",
+    "catalans",
     "gpu",
     "wow",
     "r",
@@ -235,7 +235,7 @@ void xmrig::Algorithm::parseVariant(const char *variant)
         return parseVariant(variant + 1);
     }
 
-    if (m_algo == xmrig::CRYPTONIGHT_ULTRALITE) {
+    if (m_algo == xmrig::CRYPTONIGHT_FEMTO) {
         m_variant = VARIANT_TURTLE;
         return;
     }
@@ -303,7 +303,7 @@ void xmrig::Algorithm::setAlgo(Algo algo)
 {
     m_algo = algo;
 
-    if (m_algo == CRYPTONIGHT_ULTRALITE && m_variant == VARIANT_AUTO) {
+    if (m_algo == CRYPTONIGHT_FEMTO && m_variant == VARIANT_AUTO) {
         m_variant = xmrig::VARIANT_TURTLE;
     }
 

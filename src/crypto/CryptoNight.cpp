@@ -57,10 +57,10 @@ xmrig::CpuThread::cn_mainloop_fun cn_half_mainloop_ryzen_asm = nullptr;
 xmrig::CpuThread::cn_mainloop_fun cn_half_mainloop_bulldozer_asm = nullptr;
 xmrig::CpuThread::cn_mainloop_double_fun cn_half_double_mainloop_sandybridge_asm = nullptr;
 
-xmrig::CpuThread::cn_mainloop_fun        cn_trtl_mainloop_ivybridge_asm;
-xmrig::CpuThread::cn_mainloop_fun        cn_trtl_mainloop_ryzen_asm;
-xmrig::CpuThread::cn_mainloop_fun        cn_trtl_mainloop_bulldozer_asm;
-xmrig::CpuThread::cn_mainloop_double_fun cn_trtl_double_mainloop_sandybridge_asm;
+xmrig::CpuThread::cn_mainloop_fun        cn_cat_mainloop_ivybridge_asm;
+xmrig::CpuThread::cn_mainloop_fun        cn_cat_mainloop_ryzen_asm;
+xmrig::CpuThread::cn_mainloop_fun        cn_cat_mainloop_bulldozer_asm;
+xmrig::CpuThread::cn_mainloop_double_fun cn_cat_double_mainloop_sandybridge_asm;
 
 template<typename T, typename U>
 static void patchCode(T dst, U src, const uint32_t iterations, const uint32_t mask)
@@ -106,20 +106,20 @@ static void patchAsmVariants()
     cn_half_mainloop_bulldozer_asm              = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x2000);
     cn_half_double_mainloop_sandybridge_asm     = reinterpret_cast<xmrig::CpuThread::cn_mainloop_double_fun>  (base + 0x3000);
 
-    cn_trtl_mainloop_ivybridge_asm              = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x4000);
-    cn_trtl_mainloop_ryzen_asm                  = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x5000);
-    cn_trtl_mainloop_bulldozer_asm              = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x6000);
-    cn_trtl_double_mainloop_sandybridge_asm     = reinterpret_cast<xmrig::CpuThread::cn_mainloop_double_fun>  (base + 0x7000);
+    cn_cat_mainloop_ivybridge_asm              = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x4000);
+    cn_cat_mainloop_ryzen_asm                  = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x5000);
+    cn_cat_mainloop_bulldozer_asm              = reinterpret_cast<xmrig::CpuThread::cn_mainloop_fun>         (base + 0x6000);
+    cn_cat_double_mainloop_sandybridge_asm     = reinterpret_cast<xmrig::CpuThread::cn_mainloop_double_fun>  (base + 0x7000);
 
     patchCode(cn_half_mainloop_ivybridge_asm,           cnv2_mainloop_ivybridge_asm,            xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
     patchCode(cn_half_mainloop_ryzen_asm,               cnv2_mainloop_ryzen_asm,                xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
     patchCode(cn_half_mainloop_bulldozer_asm,           cnv2_mainloop_bulldozer_asm,            xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
     patchCode(cn_half_double_mainloop_sandybridge_asm,  cnv2_double_mainloop_sandybridge_asm,   xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
 
-    patchCode(cn_trtl_mainloop_ivybridge_asm,           cnv2_mainloop_ivybridge_asm,            xmrig::CRYPTONIGHT_TRTL_ITER,   xmrig::CRYPTONIGHT_ULTRALITE_MASK);
-    patchCode(cn_trtl_mainloop_ryzen_asm,               cnv2_mainloop_ryzen_asm,                xmrig::CRYPTONIGHT_TRTL_ITER,   xmrig::CRYPTONIGHT_ULTRALITE_MASK);
-    patchCode(cn_trtl_mainloop_bulldozer_asm,           cnv2_mainloop_bulldozer_asm,            xmrig::CRYPTONIGHT_TRTL_ITER,   xmrig::CRYPTONIGHT_ULTRALITE_MASK);
-    patchCode(cn_trtl_double_mainloop_sandybridge_asm,  cnv2_double_mainloop_sandybridge_asm,   xmrig::CRYPTONIGHT_TRTL_ITER,   xmrig::CRYPTONIGHT_ULTRALITE_MASK);
+    patchCode(cn_cat_mainloop_ivybridge_asm,           cnv2_mainloop_ivybridge_asm,            xmrig::CRYPTONIGHT_CAT_ITER,   xmrig::CRYPTONIGHT_FEMTO_MASK);
+    patchCode(cn_cat_mainloop_ryzen_asm,               cnv2_mainloop_ryzen_asm,                xmrig::CRYPTONIGHT_CAT_ITER,   xmrig::CRYPTONIGHT_FEMTO_MASK);
+    patchCode(cn_cat_mainloop_bulldozer_asm,           cnv2_mainloop_bulldozer_asm,            xmrig::CRYPTONIGHT_CAT_ITER,   xmrig::CRYPTONIGHT_FEMTO_MASK);
+    patchCode(cn_cat_double_mainloop_sandybridge_asm,  cnv2_double_mainloop_sandybridge_asm,   xmrig::CRYPTONIGHT_CAT_ITER,   xmrig::CRYPTONIGHT_FEMTO_MASK);
 
     Mem::protectExecutableMemory(base, allocation_size);
     Mem::flushInstructionCache(base, allocation_size);
@@ -304,7 +304,7 @@ CryptoNight::cn_hash_fun CryptoNight::fn(xmrig::Algo algorithm, xmrig::AlgoVerif
         nullptr, nullptr, nullptr, nullptr,
 #       endif
 
-#       ifndef XMRIG_NO_CN_ULTRALITE
+#       ifndef XMRIG_NO_CN_FEMTO
         nullptr, nullptr, // VARIANT_0
         nullptr, nullptr, // VARIANT_1
         nullptr, nullptr, // VARIANT_TUBE
@@ -319,11 +319,11 @@ CryptoNight::cn_hash_fun CryptoNight::fn(xmrig::Algo algorithm, xmrig::AlgoVerif
         nullptr, nullptr, // VARIANT_UPX
 
 #       ifdef XMRIG_NO_ASM
-        cryptonight_single_hash<CRYPTONIGHT_ULTRALITE, false, VARIANT_TURTLE>,
+        cryptonight_single_hash<CRYPTONIGHT_FEMTO, false, VARIANT_TURTLE>,
 #       else
-        cryptonight_single_hash_asm<CRYPTONIGHT_ULTRALITE, VARIANT_TURTLE, ASM_AUTO>,
+        cryptonight_single_hash_asm<CRYPTONIGHT_FEMTO, VARIANT_TURTLE, ASM_AUTO>,
 #       endif
-        cryptonight_single_hash<CRYPTONIGHT_ULTRALITE, true, VARIANT_TURTLE>,
+        cryptonight_single_hash<CRYPTONIGHT_FEMTO, true, VARIANT_TURTLE>,
 
         nullptr, nullptr, // VARIANT_GPU
         nullptr, nullptr, // VARIANT_WOW
@@ -447,9 +447,9 @@ bool CryptoNight::selfTest() {
     }
 #   endif
 
-#   ifndef XMRIG_NO_CN_ULTRALITE
-    if (m_algorithm == xmrig::CRYPTONIGHT_ULTRALITE) {
-        return verify(VARIANT_TURTLE, test_output_turtle);
+#   ifndef XMRIG_NO_CN_FEMTO
+    if (m_algorithm == xmrig::CRYPTONIGHT_FEMTO) {
+        return verify(VARIANT_TURTLE, test_output_catalans);
     }
 #   endif
 
