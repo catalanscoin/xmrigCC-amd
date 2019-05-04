@@ -97,8 +97,8 @@ static AlgoData const algorithms[] = {
     { "cryptonight-femto",          "cn-femto",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
     { "cryptonight-femto/catalans",   "cn-femto/catalans",   xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
     { "cryptonight-femto/2",        "cn-femto/2",        xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
-    { "cryptonight-pico/cat",          "cn-pico/cat",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
-    { "cryptonight-pico",               "cn-pico",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-femto/cat",          "cn-femto/cat",          xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
+    { "cryptonight-femto",               "cn-femto",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
     { "cryptonight-catalans",             "cn-catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
     { "cryptonight-catalans",             "cn-cat",               xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
     { "cryptonight_catalans",             "cn_catalans",             xmrig::CRYPTONIGHT_FEMTO, xmrig::VARIANT_CAT },
@@ -132,7 +132,7 @@ static AlgoData const xmrStakAlgorithms[] = {
     { "cryptonight_masari",      nullptr, xmrig::CRYPTONIGHT,       xmrig::VARIANT_MSR  },
     { "cryptonight-bittube2",    nullptr, xmrig::CRYPTONIGHT_HEAVY, xmrig::VARIANT_TUBE }, // bittube-miner
     { "cryptonight_alloy",       nullptr, xmrig::CRYPTONIGHT,       xmrig::VARIANT_XAO  }, // xmr-stak-alloy
-    { "cryptonight_catalans",      nullptr, xmrig::CRYPTONIGHT_PICO,  xmrig::VARIANT_CAT },
+    { "cryptonight_catalans",      nullptr, xmrig::CRYPTONIGHT_FEMTO,  xmrig::VARIANT_CAT },
     { "cryptonight_gpu",         nullptr, xmrig::CRYPTONIGHT,       xmrig::VARIANT_GPU  },
 };
 #endif
